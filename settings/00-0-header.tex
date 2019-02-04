@@ -6,72 +6,84 @@
 
 
 
+%%%%%%%%%
 % Margin
+%%%%%%%%%
 \usepackage{setspace}
 \usepackage{anysize}
+%set the marginsize: top, bottom, left, right
 \marginsize{3cm}{3cm}{2cm}{2cm}
-%\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
-%\setlength{\marginparwidth}{2cm}
 
-% Font, Encoding
 
-\usepackage[ngerman,british,american]{babel}
+%%%%%%%%%
+% Languages
+%%%%%%%%%
+%All languages used in the thesis should be given here
+%The default language comes last, in this case: american
+\usepackage[%
+ngerman
+,british
+,american
+]{babel}
 
+
+%%%%%%%%%
+% Encoding
+%%%%%%%%%
+%Load superior font and input encoding
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
-%Basically times with better kerning
+
+%%%%%%%%%
+% Font
+%%%%%%%%%
+%Following packages load fonts, choose one of each class
+
+
+%serif
+%%%%%%
 %\usepackage{mathptmx}
-%\usepackage[scaled=0.9]{helvet}
-%\usepackage{courier}
-%\linespread{1.06}
-
 %\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
-%\usepackage[scaled=0.95]{inconsolata}
-%\let\openbox\undefined
-
-
-
 %\usepackage[sc]{mathpazo}
-%\linespread{1.06}
-
-
 %\usepackage[bitstream-charter]{mathdesign}
-%\let\circledS\undefined % here - PS
-
-
-
-%\usepackage{times}
-
-\usepackage{kpfonts}
-\linespread{1.01}
-
-%\usepackage{tracefnt}
-
 %\usepackage{lmodern}
+\usepackage{kpfonts} \linespread{1.01}
+
+%sans serif
+%%%%%%%
 \usepackage[scaled=0.9]{helvet}
 
-\usepackage[scaled=0.95,var0]{inconsolata}%Always use inconsolata as monospace font
+%Monospace/Typewriter
+%%%%%%
+%\usepackage{courier}
+\usepackage[scaled=0.95]{inconsolata}
 
-% Fancy header and footer
-\usepackage{fancyhdr}
-%\usepackage{titlesec}
 
-
+%%%%%%
+%Load various packages
+%%%%%%
 % Graphics
-\usepackage{graphicx}
+\usepackage{graphicx} %Provides \includegraphics and stuff
 \usepackage{float}
-\graphicspath{{images/}}
+\graphicspath{{images/}} % no need to specify full path for graphics: only provide name
+
 
 % Math stuff
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{nicefrac}
+\usepackage{nicefrac} %provides \nicefrac{2}{3} which produces nice fractures
 
 
-% Code listings
-\usepackage{listings}
-\lstset{basicstyle=\footnotesize\ttfamily}
+%Provides environments for typesetting code and similar
+%\usepackage{listings}
+%\lstset{
+	%breaklines = true, 
+	%basicstyle = \ttfamily %Use typewriter font
+%}
+%\lstMakeShortInline[columns=fixed]| %Can be used for inline code, surrounded by '|': Blabla |Some Code| blabla
+%If this produces an overfull hbox, place each word of the code |individually| |into| |the| |environment|
+
 
 % Links within pdf file
 \usepackage{hyperref}
@@ -88,7 +100,7 @@
 	pdfstartpage={1},
         % adapt following lines if you want these items to show in pdf
         % otherwise remove
-	pdftitle={[Security Analysis of LTE NarrowBand-IoT]},
+	pdftitle={[\yourtitle]}
 	pdfsubject={[Master Thesis]},
 	pdfauthor={[Magnus Berendes]}
 }
@@ -98,11 +110,12 @@
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf}
 
-% for sample text, can be removed in production version
-\usepackage{blindtext}
 
 % Fancy toc title
-\renewcommand{\contentsname}{CONTENTS}
+%\renewcommand{\contentsname}{CONTENTS}
+
+% Fancy header and footer
+\usepackage{fancyhdr}
 
 % Fancy chapter page
 \makeatletter
@@ -155,39 +168,79 @@
 \setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
 \setlength{\parindent}{0pt}
 
-% A few commands
-\newcommand{\term}[1]{\textit{#1}}
-\newcommand{\code}[1]{\texttt{#1}}
 
 \usepackage{ifdraft}
 
 
-%\usepackage[style = numeric,  backend = biber, natbib=true]{biblatex}
-%\usepackage[style = authoryear-icomp,  backend = biber]{biblatex}
 \usepackage[style = numeric-comp,  backend = biber, urldate=long,maxbibnames=99]{biblatex}
+%\addbibresource{mybib.bib}
 
-%\DeclareFieldFormat{urldate}{%
-  %\thefield{urlday}\adddot\addspace%
-  %\mkbibmonth{\thefield{urlmonth}}\adddot\addspace%
-  %\thefield{urlyear}\isdot}
 
-	%prenote is defined \defbibnote{name}{text}
-\defbibnote{specs}{%
-This list of references lists only the technical specifications and technical reports cited in this paper that have been published by the \acf{3gpp} and the \acf{etsi}.
-All other resources are listed in the list of references on page \pageref{chap:references}.
-} 
 
-%\usepackage[style = numeric,  backend = biber, natbib=true, sorting=none]{biblatex}
-\addbibresource{mybib.bib}
-\addbibresource{to_read.bib}
-\addbibresource{my3gpp.bib}
+% for sample text, can be removed in production version
+\usepackage{blindtext}
 
-%\usepackage[square,comma,numbers,sort&compress]{natbib}
+%provides \enquote{...} which is used for citations: \enquote{Alle Verhältnisse umzuwerfen, in denen der Mensch ein erniedrigtes, ein geknechtetes, ein verlassenes, ein verächtliches Wesen ist}
+\usepackage[autostyle=true]{csquotes}
 
-%\def\itemrange#1{%
-	%\addtocounter{enumi}{1}%
-	%\edef\labelenumi{\theenumi--\noexpand\theenumi}%
-	%\addtocounter{enumi}{-1}%
-	%\addtocounter{enumi}{#1}%
-%\item
-%\def\labelenumi{\theenumi}}
+%Some definitions for u.A., z.B., e.g., i.e., ->, => with a nice tiny space between both letters
+%These will eat the whitespace behind them, so \zb{} use them like this with {}
+\def\ua{u.\,A.}
+\def\zb{z.\,B.}
+\def\eg{e.\,g.}
+\def\ie{i.\,e.}
+\def\ra{$\rightarrow$}
+\def\Ra{$\Rightarrow$}
+
+%Provdes macros for typesetting units (eg, \si{\meter}) and numbers (\num{1000000}) or both together (\SI{<value>}{<unit>})
+\usepackage[binary-units=true]{siunitx}
+\sisetup{group-separator = {,}} %How groups of thousands are separated, default is short space, here it is set to ,
+
+
+%Provides powerful acronym  environment, see include/acros.tex
+\usepackage{relsize} %for resizing acros
+\usepackage[
+	sort=true %sort list of abbreviations
+	,single=true, 
+	%,list-name={List of Abbreviations}
+	,list-style=longtable %needed for long list of abbreviations spanning multiple pages
+	,list-caps=true %Capitalize first word of long form in list of abbreviations
+	,short-format={\scshape\small} %short format is in small caps and typeset a bit smaller than surrounding texts, looks much better
+	,list-short-format = {\bfseries} %Short form in list is printed bold
+]
+{acro}
+
+
+
+
+%Used for \todo{Whatever you have to do} command, which produces a note pointing to the location where you used the command
+\setlength{\marginparwidth}{2cm}
+\usepackage[
+	obeyDraft %Only when option draft is active, when draft is not given, the package is disabled completely
+	,textwidth=0.9\marginparwidth %to provide writing over the margin
+	,textsize=footnotesize %Small text so more space for text
+	,bordercolor=red
+	,linecolor=red
+	,backgroundcolor=white
+	,shadow
+	,figwidth=0.75\linewidth
+]{todonotes}
+
+
+
+%Black magic microtyping fuckery. Options are explained below.
+\usepackage[draft=false,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\DeclareMicrotypeSet*[tracking]{my}% 
+	{ font = */*/*/sc/* }% 
+\SetTracking{ encoding = *, shape = sc }{ 45 }
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+
+%Prevents widows and clubs (Schusterjungen und Hurenkinder)
+\usepackage[all]{nowidow}
+
+

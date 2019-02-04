@@ -26,18 +26,17 @@
 ]{scrbook}
 
 
+\input{metadata}
 % Include Header
-\input{include/00-0-header}
+\input{settings/00-0-header}
 
-\input{include/00-0-includeonly}
-\showboxbreadth=50 
-\showboxdepth=50
-\input{include/00-1-mysettings}
+\input{settings/00-0-includeonly}
+\input{settings/00-1-mysettings}
 
-\input{include/myacros.tex}
+%\input{settings/myacros.tex}
 
 \begin{document}
-\lstMakeShortInline[columns=fixed]@
+%\lstMakeShortInline[columns=fixed]@
 
 
 
@@ -113,7 +112,7 @@
 
 \acresetall
 
-\input{include/00-4-skeleton.tex}
+%\input{include/00-4-skeleton.tex}
 
 
 % Bibliography
@@ -122,48 +121,48 @@
 %\printbibliography
 
 %\pagestyle{plain}
-\cleardoublepage
-\fancyhead[RO]{TECHNICAL SPECIFICATIONS}
-\fancyhead[LE]{TECHNICAL SPECIFICATIONS}
+%\cleardoublepage
+%\fancyhead[RO]{TECHNICAL SPECIFICATIONS}
+%\fancyhead[LE]{TECHNICAL SPECIFICATIONS}
 
-\chapter*{Technical Specifications}
-\emergencystretch=1em
-\addcontentsline{toc}{chapter}{Technical Specifications}
-\printbibliography[
-title=3GPP Specifications
-, keyword=3gpp
-,heading=none
-%,prenote=specs
-]
-%prenote = name
+%\chapter*{Technical Specifications}
+%\emergencystretch=1em
+%\addcontentsline{toc}{chapter}{Technical Specifications}
+%\printbibliography[
+%title=3GPP Specifications
+%, keyword=3gpp
+%,heading=none
+%%,prenote=specs
+%]
+%%prenote = name
 
-\cleardoublepage
-\fancyhead[RO]{REFERENCES}
-\fancyhead[LE]{REFERENCES}
+%\cleardoublepage
+%\fancyhead[RO]{REFERENCES}
+%\fancyhead[LE]{REFERENCES}
 
-\setcounter{biburllcpenalty}{9000}
-\setcounter{biburlucpenalty}{7000}
-\setcounter{biburlnumpenalty}{8000}
-%\setcounter{biburllcpenalty}{5000}
+%\setcounter{biburllcpenalty}{9000}
+%\setcounter{biburlucpenalty}{7000}
+%\setcounter{biburlnumpenalty}{8000}
+%%\setcounter{biburllcpenalty}{5000}
 
-\chapter*{References}
-\label{chap:references}
-\addcontentsline{toc}{chapter}{References}
-\printbibliography[title=Bibliography
-, notkeyword=3gpp
-, heading=none
-]
-%
+%\chapter*{References}
+%\label{chap:references}
+%\addcontentsline{toc}{chapter}{References}
+%\printbibliography[title=Bibliography
+%, notkeyword=3gpp
+%, heading=none
+%]
+%%
 
-\cleardoublepage
-\fancyhead[RO]{\rightmark}
-\fancyhead[LE]{\leftmark}
+%\cleardoublepage
+%\fancyhead[RO]{\rightmark}
+%\fancyhead[LE]{\leftmark}
 
-\include{include/appendices}
+%\include{include/appendices}
 
-\cleardoublepage
-\pagestyle{plain}
-\fancyfoot{}
-\phantom{bla}
+%\cleardoublepage
+%\pagestyle{plain}
+%\fancyfoot{}
+%\phantom{bla}
 
 \end{document}
