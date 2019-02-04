@@ -15,10 +15,9 @@
 ,twoside
 %,twoside=false
 ,bibliography=totoc
-%to remove gap between tables in different chapters in list of tables
+%to remove gap between tables in different chapters in list of tables:
 %,listof=nochaptergap 
 ,numbers=noenddot
-%,onehalfspacing
 ,a4paper
 %draft or final
 %,draft
@@ -33,7 +32,7 @@
 \input{settings/00-0-includeonly}
 \input{settings/00-1-mysettings}
 
-%\input{settings/myacros.tex}
+\input{settings/myacros.tex}
 
 \begin{document}
 %\lstMakeShortInline[columns=fixed]@
@@ -47,7 +46,7 @@
 %\cleardoublepage
 %\end{document}
 % Title
-\include{include/00-1-title}
+\include{settings/00-1-title}
 
 % Roman page numbers
 \pagenumbering{roman}
@@ -58,7 +57,6 @@
 \cleardoublepage
 \include{include/00-3-abstract}
 \cleardoublepage
-
 
 % Table of Contents
 
@@ -78,7 +76,6 @@
 	\printacronyms[
 	heading=chapter*
 	,name={List of Abbreviations}
-	,exclude-classes={dummy,key}
 	]
 
 
@@ -124,44 +121,30 @@
 %\fancyhead[RO]{TECHNICAL SPECIFICATIONS}
 %\fancyhead[LE]{TECHNICAL SPECIFICATIONS}
 
-%\chapter*{Technical Specifications}
-%\emergencystretch=1em
-%\addcontentsline{toc}{chapter}{Technical Specifications}
-%\printbibliography[
-%title=3GPP Specifications
-%, keyword=3gpp
-%,heading=none
-%%,prenote=specs
-%]
-%%prenote = name
 
-%\cleardoublepage
-%\fancyhead[RO]{REFERENCES}
-%\fancyhead[LE]{REFERENCES}
+\cleardoublepage
+\fancyhead[RO]{REFERENCES}
+\fancyhead[LE]{REFERENCES}
 
-%\setcounter{biburllcpenalty}{9000}
-%\setcounter{biburlucpenalty}{7000}
-%\setcounter{biburlnumpenalty}{8000}
-%%\setcounter{biburllcpenalty}{5000}
+\setcounter{biburllcpenalty}{9000}
+\setcounter{biburlucpenalty}{7000}
+\setcounter{biburlnumpenalty}{8000}
+%\setcounter{biburllcpenalty}{5000}
 
-%\chapter*{References}
-%\label{chap:references}
-%\addcontentsline{toc}{chapter}{References}
-%\printbibliography[title=Bibliography
-%, notkeyword=3gpp
-%, heading=none
-%]
+\chapter*{References}
+\label{chap:references}
+\addcontentsline{toc}{chapter}{References}
+\printbibliography[title=Bibliography
+, heading=none
+]
 %%
 
-%\cleardoublepage
-%\fancyhead[RO]{\rightmark}
-%\fancyhead[LE]{\leftmark}
-
+\cleardoublepage
+\fancyhead[RO]{\rightmark}
+\fancyhead[LE]{\leftmark}
 %\include{include/appendices}
 
 %\cleardoublepage
 %\pagestyle{plain}
-%\fancyfoot{}
-%\phantom{bla}
 
 \end{document}

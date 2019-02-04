@@ -3,6 +3,19 @@ This is where you put all your actual content.
 It's probably best to split it into different files, at least one for each chapter.
 Do it like this: \texttt{\textbackslash{}include\{include/chapter1\}} and have the content in the file \texttt{include/chapter1.tex}.
 
+Citations can be done like this: \textcite{adorno1980gesammelte} once said \enquote{cheese is lit af}\footnote{Using \texttt{\textbackslash{}enquote\{\dots\}} you always get nice quotations marks, according to the language of your text}.
+Or like this: He did not say the same thing about Jazz \autocite{adorno1980gesammelte}.
+The style of the citations can be set in \texttt{settings/00-0-header.tex}, the actual bibliography entries can be found in \texttt{bibliography.bib}.
+\emph{This} is how you can emphasize things in text. \emph{It also \emph{nests} nicely.}
+Acronyms can be produced with \ac{iot}, the second time you use it it only is \ac{iot}.
+Also note the difference (regarding the articles) between \iac{lte} network and \iac{lte} network.
+The acronyms themselves are defined in \texttt{settings/myacros.tex}.
+
+For nicer spacing use \ie, instead of i.e. (same goes for \eg, \ua, \zb).
+
+Most relevant metadata, \eg, title, author, etc.\ is set in \texttt{metadata.tex}, although some stuff has to be set in \texttt{settings/00-1-title.tex} or even \texttt{setings/00-0-header.tex} as well.
+SI units can be nicely typset with decimal seperators using the \texttt{\textbackslash{}SI\{...\}} command, \eg, \SI{299792458}{m/s}, or just with \texttt{\textbackslash{}num\{\}}: \num{13121312}.
+
 \Blindtext[2]
 
 

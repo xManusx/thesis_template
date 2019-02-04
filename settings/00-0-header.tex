@@ -72,7 +72,7 @@ ngerman
 % Math stuff
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{nicefrac} %provides \nicefrac{2}{3} which produces nice fractures
+\usepackage{nicefrac} %provides \nicefrac{2}{3} which produces nice fractures for use in inline math
 
 
 %Provides environments for typesetting code and similar
@@ -101,8 +101,8 @@ ngerman
         % adapt following lines if you want these items to show in pdf
         % otherwise remove
 	pdftitle={[\yourtitle]}
-	pdfsubject={[Master Thesis]},
-	pdfauthor={[Magnus Berendes]}
+	pdfsubject={[\yoursubject]},
+	pdfauthor={[\yourauthor]}
 }
 
 \usepackage{cleveref}
@@ -173,7 +173,7 @@ ngerman
 
 
 \usepackage[style = numeric-comp,  backend = biber, urldate=long,maxbibnames=99]{biblatex}
-%\addbibresource{mybib.bib}
+\addbibresource{bibliography.bib}
 
 
 
@@ -198,7 +198,6 @@ ngerman
 
 
 %Provides powerful acronym  environment, see include/acros.tex
-%THIS IS BROKEN
 \usepackage{relsize} %for resizing acros
 \usepackage[
 	sort=true %sort list of abbreviations
@@ -230,7 +229,16 @@ ngerman
 
 
 %Black magic microtyping fuckery. Options are explained below.
-\usepackage[draft=false,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[
+,final %comment this line out to disable microtyping in draft mode, greatly reduces compile time
+,activate={true,nocompatibility}
+,tracking=true
+,kerning=true
+,spacing=true
+,factor=1100
+,stretch=10
+,shrink=10
+]{microtype}
 \DeclareMicrotypeSet*[tracking]{my}% 
 	{ font = */*/*/sc/* }% 
 \SetTracking{ encoding = *, shape = sc }{ 45 }
