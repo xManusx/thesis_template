@@ -1,0 +1,35 @@
+\setcounter{chapter}{-1}
+\chapter{Expose}
+
+\section*{Motivation}
+
+\section*{Problem Statement}
+
+
+\section*{Concrete Goals}
+Concrete goals for this thesis include:
+\begin{enumerate}
+	\item
+		Examining differences between \ac{nb} and \ac{lte}.
+		Although \ac{nb} is directly based on the \ac{lte} standard and uses the same cellular network, it is not backward compatible with \ac{lte} and prior standards such as \acs{gsm} and \acs{umts}.
+		Many features of \ac{lte} are not supported, including very basic operations, such as handovers \cite{whitepaper}.
+	\item
+		Defining security goals for \ac{iot} \ac{mtc} and an appropriate attacker model.
+		Those are crucial parts of every in-depth security analysis.
+		Security analyses of traditional \ac{lte} have defined security goals and attacker models before \cite{inspector}.
+		However, for cellular \ac{mtc} different security goals might be appropriate. 
+	\item
+		Finding literature on known attacks on \ac{lte} and related standards (\acs{umts}, \acs{gsm}) and finding an appropriate taxonomy to classify attacks according to different properties.
+		Examples for known attacks can be found in \citet{inspector}, \citet{kune2012location}, \citet{mitmumts}, or \citet{shaik2015practical}, among others.
+		
+	\item
+		Analyzing whether attacks concern \ac{lte} \ac{nb}.
+		The lack of some \ac{lte} features in \ac{nb} could render certain attacks unfeasible;
+		for example, an attack against the handover procedure cannot be possible as there simply is no such thing in the \ac{nb} standard.
+
+	\item
+		Implementing chosen attacks -- possibly the most concerning ones -- using \ac{nb} equipment in a lab setting.
+		This way, the theoretical considerations regarding possible attacks would validated by tests with real \ac{lte} \ac{nb} hardware.
+	%\item
+		%Which concrete (part-) goals do I want to solve on my way to solve the problem statement?
+\end{enumerate}

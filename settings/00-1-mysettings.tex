@@ -1,0 +1,169 @@
+\usepackage{morewrites} 
+\usepackage[autostyle=true]{csquotes}
+%For comment environment
+\usepackage{verbatim}
+
+%For acronyms
+%\usepackage[smaller,printonlyused]{acronym}
+
+\usepackage[inline]{enumitem}
+\usepackage{longtable}
+\usepackage{expl3} % for sorting acros
+
+%Omit final dot from each def.
+\def\eg{e.\,g.}
+\def\ie{i.\,e.}
+\newcommand{\Set}[1]{%
+\{#1\}%
+}
+
+
+\usepackage[binary-units=true]{siunitx}
+\sisetup{group-separator = {,}}
+
+\usepackage{eurosym}
+\usepackage{wasysym} %for circle symbols
+
+
+\usepackage{array}% for extended column definitions
+\renewcommand\arraystretch{1.5}
+
+\usepackage{relsize} %for resizing acros
+
+\usepackage[
+	sort=true
+	,single=true,
+	,list-name={List of Abbreviations}
+	%,list-style=longtable
+	%,list-style=description
+	,only-used=false
+]
+{acro}
+
+\acsetup{
+	%list-style=tabular
+	list-style=longtable
+	,list-caps=true
+	,short-format={\scshape\small}
+	,extra-style=plain
+	%,first-style=reversed
+	,list-short-format ={\bfseries} % Abkürzungen in fetter Serifenschrift im Verzeichnis 
+	%,first-long-format = {\itshape} % Erste Lange Ausführung der Abkürzung kursiv gestellt
+}
+
+\DeclareAcroListStyle{tabular}{table}{
+	table = longtable,
+	% 4 columns: acronym, description, extra information, page number
+	table-spec = >{\bfseries}p{0.12\linewidth}p{0.4\linewidth}p{0.36\linewidth}l
+}
+\DeclareAcroListStyle{extra-tabular}{extra-table}{
+  table = longtable,
+  % 4 columns: acronym, description, extra information, page number
+	table-spec = >{\bfseries}p{0.12\linewidth}p{0.75\linewidth}p{0.01\linewidth}l
+}
+
+%\acsetup{list-long-format=\capitalisewords}
+
+
+%\newlist{acronyms}{description}{1}
+%\newcommand*\addcolon[1]{#1:}
+%\setlist[acronyms]{
+	%labelwidth = 4.5em,
+	%leftmargin = 3.5em,
+	%noitemsep,
+	%itemindent = 0pt,
+%font=\addcolon}
+%\DeclareAcroListStyle{mystyle}{list}{ list = acronyms }
+%\acsetup{ list-style = mystyle }
+
+\usepackage{mfirstuc}% provides \capitalisewords
+
+\setlength{\marginparwidth}{2cm}
+\usepackage[
+	obeyDraft
+	,textwidth=0.9\marginparwidth
+	,textsize=footnotesize
+	,bordercolor=red
+	,linecolor=red
+	,backgroundcolor=white
+	,shadow
+	,figwidth=0.75\linewidth
+]{todonotes}
+
+\usepackage{ifdraft}
+
+
+%\usepackage[tracking=true,draft=false]{microtype}
+\usepackage[draft=false,activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\DeclareMicrotypeSet*[tracking]{my}% 
+	{ font = */*/*/sc/* }% 
+\SetTracking{ encoding = *, shape = sc }{ 45 }% Hier wird festgelegt,
+            % dass alle Passagen in Kapitälchen automatisch leicht
+            % gesperrt werden. Das Paket soul, das ich früher empfohlen
+            % habe ist damit für diese Zwecke nicht mehr nötig.
+            %
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+%\SetProtrusion{encoding={*},family={bch},series={*},size={6,7}}
+%{1={ ,750},2={ ,500},3={ ,500},4={ ,500},5={ ,500},
+%6={ ,500},7={ ,600},8={ ,500},9={ ,500},0={ ,500}}
+
+%\SetExtraKerning[unit=space]
+%{encoding={*}, family={bch}, series={*}, size={footnotesize,small,normalsize}}
+%{\textendash={400,400}, % en-dash, add more space around it
+	%"28={ ,150}, % left bracket, add space from right
+	%"29={150, }, % right bracket, add space from left
+	%\textquotedblleft={ ,150}, % left quotation mark, space from right
+%\textquotedblright={150, }} % right quotation mark, space from left
+
+\usepackage[all]{nowidow}
+
+\newcommand{\myinclude}[1]{%
+	\fancyhead[RE]{\leftmark}%
+	\include{#1}%
+	\fancyhead[RE]{\rightmark}%
+}
+
+\def\ra{$\rightarrow$}
+\def\Ra{$\Rightarrow$}
+
+
+\usepackage{listings}
+\lstset{
+	breaklines = true,
+	breakatwhitespace = true,
+	basicstyle = \ttfamily
+}
+
+\lstMakeShortInline[columns=fixed]|
+
+\usepackage{tabularx}
+
+\usepackage{booktabs}
+
+%Tweak that tilde!
+\newcommand{\mysim}{%
+	{\raise.17ex\hbox{$\scriptstyle\sim$}}%
+}
+
+%\usepackage{paralist} %For inline enums
+\usepackage[inline]{enumitem}
+
+\input{include/attackdefinitions}
+
+\usepackage{pifont} %for checkmarks and crosses
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+\newcommand{\epigraph}[2]{%
+	\begin{displayquote}
+		{\small%
+		#1\\
+		\phantom{blabla} \hfill#2}
+	\end{displayquote}
+}

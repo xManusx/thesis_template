@@ -1,0 +1,193 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Header
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Margin
+\usepackage{setspace}
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2cm}{2cm}
+%\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+%\setlength{\marginparwidth}{2cm}
+
+% Font, Encoding
+
+\usepackage[ngerman,british,american]{babel}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+%Basically times with better kerning
+%\usepackage{mathptmx}
+%\usepackage[scaled=0.9]{helvet}
+%\usepackage{courier}
+%\linespread{1.06}
+
+%\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+%\usepackage[scaled=0.95]{inconsolata}
+%\let\openbox\undefined
+
+
+
+%\usepackage[sc]{mathpazo}
+%\linespread{1.06}
+
+
+%\usepackage[bitstream-charter]{mathdesign}
+%\let\circledS\undefined % here - PS
+
+
+
+%\usepackage{times}
+
+\usepackage{kpfonts}
+\linespread{1.01}
+
+%\usepackage{tracefnt}
+
+%\usepackage{lmodern}
+\usepackage[scaled=0.9]{helvet}
+
+\usepackage[scaled=0.95,var0]{inconsolata}%Always use inconsolata as monospace font
+
+% Fancy header and footer
+\usepackage{fancyhdr}
+%\usepackage{titlesec}
+
+
+% Graphics
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{{images/}}
+
+% Math stuff
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{nicefrac}
+
+
+% Code listings
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize\ttfamily}
+
+% Links within pdf file
+\usepackage{hyperref}
+\hypersetup{
+	unicode=true,
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+	filecolor=black,
+	urlcolor=black,
+	breaklinks=true,
+	bookmarksnumbered=true,
+	draft=false,
+	pdfstartpage={1},
+        % adapt following lines if you want these items to show in pdf
+        % otherwise remove
+	pdftitle={[Security Analysis of LTE NarrowBand-IoT]},
+	pdfsubject={[Master Thesis]},
+	pdfauthor={[Magnus Berendes]}
+}
+
+\usepackage{cleveref}
+% Figure captions
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+
+% for sample text, can be removed in production version
+\usepackage{blindtext}
+
+% Fancy toc title
+\renewcommand{\contentsname}{CONTENTS}
+
+% Fancy chapter page
+\makeatletter
+\def\@makechapterhead#1{
+  \vspace*{100\p@}
+  {\parindent \z@ 
+    {\raggedleft
+      \fontsize{15ex}{15ex}
+      \textsf\thechapter\par\nobreak}
+    \par\nobreak
+    \interlinepenalty\@M
+    {\raggedright \Huge \textsf{\textsc{#1}}}
+    \par\nobreak
+    \leavevmode \leaders \hrule height 0.65ex \hfill \kern \z@
+    \par\nobreak
+    \vskip 100\p@
+  }
+}
+\makeatother
+
+%Fancy chapter* page
+
+
+% No headers on empty pages before new chapter
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+  \hbox{}
+  \thispagestyle{empty}
+  \newpage
+  \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother 
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+% Fancy header / footer for chapter pages
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyfoot[LE,RO]{\thepage}
+}
+
+% Fancy header / footer for normal pages
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[LE,RO]{\thepage}
+\fancyhead[RO]{\leftmark}
+\fancyhead[LE]{\rightmark}
+
+% No indent for paragraphs
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+% A few commands
+\newcommand{\term}[1]{\textit{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\usepackage{ifdraft}
+
+
+%\usepackage[style = numeric,  backend = biber, natbib=true]{biblatex}
+%\usepackage[style = authoryear-icomp,  backend = biber]{biblatex}
+\usepackage[style = numeric-comp,  backend = biber, urldate=long,maxbibnames=99]{biblatex}
+
+%\DeclareFieldFormat{urldate}{%
+  %\thefield{urlday}\adddot\addspace%
+  %\mkbibmonth{\thefield{urlmonth}}\adddot\addspace%
+  %\thefield{urlyear}\isdot}
+
+	%prenote is defined \defbibnote{name}{text}
+\defbibnote{specs}{%
+This list of references lists only the technical specifications and technical reports cited in this paper that have been published by the \acf{3gpp} and the \acf{etsi}.
+All other resources are listed in the list of references on page \pageref{chap:references}.
+} 
+
+%\usepackage[style = numeric,  backend = biber, natbib=true, sorting=none]{biblatex}
+\addbibresource{mybib.bib}
+\addbibresource{to_read.bib}
+\addbibresource{my3gpp.bib}
+
+%\usepackage[square,comma,numbers,sort&compress]{natbib}
+
+%\def\itemrange#1{%
+	%\addtocounter{enumi}{1}%
+	%\edef\labelenumi{\theenumi--\noexpand\theenumi}%
+	%\addtocounter{enumi}{-1}%
+	%\addtocounter{enumi}{#1}%
+%\item
+%\def\labelenumi{\theenumi}}
