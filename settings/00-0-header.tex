@@ -198,6 +198,7 @@ ngerman
 
 
 %Provides powerful acronym  environment, see include/acros.tex
+%THIS IS BROKEN
 \usepackage{relsize} %for resizing acros
 \usepackage[
 	sort=true %sort list of abbreviations
@@ -205,8 +206,8 @@ ngerman
 	%,list-name={List of Abbreviations}
 	,list-style=longtable %needed for long list of abbreviations spanning multiple pages
 	,list-caps=true %Capitalize first word of long form in list of abbreviations
-	,short-format={\scshape\small} %short format is in small caps and typeset a bit smaller than surrounding texts, looks much better
-	,list-short-format = {\bfseries} %Short form in list is printed bold
+	%,short-format={\scshape\small} %short format is in small caps and typeset a bit smaller than surrounding texts, looks much better THIS OPTION IS BROKEN
+	%,list-short-format = {\bfseries} %Short form in list is printed bold THIS OPTION IS ALSO BROKEN
 ]
 {acro}
 
